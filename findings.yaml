@@ -9,10 +9,10 @@ data_issues:
   # For each of the 7 kinds: present: true or false.
   # If present is false, leave the other values as null.
   leaking_column:
-    present: null
-    column: null           # the column that must not be used as a feature
+    present: True
+    column: fare_paid_receipt_rs          # the column that must not be used as a feature
   unit_mixup:
-    present: null
+    present: True
     column: null           # the column recorded in a different unit
     group_value: null      # the value of zone whose rows are affected
     factor: null           # wrong value = right value x factor
@@ -22,18 +22,18 @@ data_issues:
     value: null            # the special number typed instead of a blank
     count: null            # how many rows have it
   duplicate_rows:
-    present: null
-    count: null            # number of EXTRA copies (rows you would delete)
+    present: True
+    count: 44          # number of EXTRA copies (rows you would delete)
   stuck_sensor:
-    present: null
-    column: null
-    start_date: null       # first date with the stuck value, YYYY-MM-DD
-    end_date: null         # last date with the stuck value, YYYY-MM-DD
+    present: True
+    column: "fuel_price_rs"        # the column that is stuck
+    start_date: "2026-03-26"       # first date with the stuck value, YYYY-MM-DD
+    end_date: "2026-04-09"         # last date with the stuck value, YYYY-MM-DD
   target_typos:
-    present: null
-    count: null            # rows whose target was typed 10 times too big
+    present: True
+    count: 10            # rows whose target was typed 10 times too big
   spelling_variants:
-    present: null
+    present: False
     column: null
     true_levels: null      # how many real categories there are after cleaning
 
