@@ -13,11 +13,11 @@ data_issues:
     column: fare_paid_receipt_rs          # the column that must not be used as a feature
   unit_mixup:
     present: True
-    column: null           # the column recorded in a different unit
-    group_value: null      # the value of zone whose rows are affected
-    factor: null           # wrong value = right value x factor
+    column: distance_km           # the column recorded in a different unit
+    group_value: Market      # the value of zone whose rows are affected
+    factor: 1000           # wrong value = right value x factor
   sentinel_value:
-    present: null
+    present: False
     column: null
     value: null            # the special number typed instead of a blank
     count: null            # how many rows have it
