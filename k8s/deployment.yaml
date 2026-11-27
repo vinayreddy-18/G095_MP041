@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mp041-api
+  labels:
+    app: mp041-api
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: mp041-api
+  template:
+    metadata:
+      labels:
+        app: mp041-api
+    spec:
+      containers:
+        - name: mp041-api
+          image: mp041-api:1.0
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
